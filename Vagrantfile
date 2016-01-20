@@ -35,8 +35,11 @@ Vagrant.configure(2) do |config|
 
         ## Optionally set preemption
         sed -i '/.*preempt.*/c\\\x20\x20\x20\x20\x20\x20preempt: true' /etc/rexray/config.yml
-
+        
+        ## enable docker service and start docker afterwards
+        /bin/systemctl enable docker.service
         /bin/systemctl start  docker.service
+        
       SHELL
     end
   end
